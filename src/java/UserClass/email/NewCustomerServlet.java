@@ -5,6 +5,7 @@
  */
 package UserClass.email;
 
+import Login.business.User;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -13,20 +14,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import Login.business.User;
-
 /**
  *
  * @author Jason
  */
-@WebServlet( urlPatterns = {"/LoginServlet"})
-public class LoginServlet extends HttpServlet {
+@WebServlet( urlPatterns = {"/NewCustomerServlet"})
+public class NewCustomerServlet extends HttpServlet {
+
     @Override
     protected void doPost(HttpServletRequest request, 
                           HttpServletResponse response) 
                           throws ServletException, IOException {
 
-        String url = "/index.html";
+        String url = "/New_customer.html";
 
         // get current action
         String action = request.getParameter("action");
@@ -36,23 +36,25 @@ public class LoginServlet extends HttpServlet {
 
         // perform action and set URL to appropriate page
         if (action.equals("submit")) {
-            url = "/Login.html";   
+            url = "/New_customer.html";   
         }
         else if (action.equals("add")) {                
             // get parameters from the request
-            String userName = request.getParameter("username");
-            String password = request.getParameter("password");
-            if (userName.equals("jsmith@toba.com") && password.equals("letmein")) {
-             url = "/Account_activity.html";  // default action
-        }
-            else{url = "/Login_failure.html";}
+            String firstName = request.getParameter("firstname");
+            String lastName = request.getParameter("lastname");
+            String phone = request.getParameter("phone");
+            String address = request.getParameter("address");
+            String city = request.getParameter("city");
+            String state = request.getParameter("state");
+            String zipCode = request.getParameter("zip");
+            String eMail = request.getParameter("email");
 
             // store data in User object and save User object in database
-            User user = new User(userName,password);
+           // User user = new User(firstName,lastName,phone,address,city,state,zipCode,eMail);
             
             // set User object in request object and set URL
             //request.setAttribute("user", user);
-           // url = "/success.jsp";   // edit me
+            url = "/Success.html";   // edit me
         }
         
         // forward request and response objects to specified URL
