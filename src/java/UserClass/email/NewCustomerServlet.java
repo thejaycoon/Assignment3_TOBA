@@ -55,6 +55,15 @@ public class NewCustomerServlet extends HttpServlet {
             // set User object in request object and set URL
             //request.setAttribute("user", user);
             url = "/Success.html";   // edit me
+            String message;
+            if (firstName == null || lastName == null || phone == null || address == null
+                    || city == null || state == null || zipCode == null || eMail == null ||
+                    firstName.isEmpty() || lastName.isEmpty() || phone.isEmpty() || address.isEmpty()
+                    || city.isEmpty() || state.isEmpty() || zipCode.isEmpty() || eMail.isEmpty()){
+                message = "Please fill out all the form fields.";
+                url = "/New_customer.html";
+            }
+            request.setAttribute("message", url);
         }
         
         // forward request and response objects to specified URL
