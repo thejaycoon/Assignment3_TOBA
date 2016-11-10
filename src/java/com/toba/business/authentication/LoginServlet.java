@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.toba.business.shared.User;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -42,17 +43,19 @@ public class LoginServlet extends HttpServlet {
             // get parameters from the request
             String userName = request.getParameter("username");
             String password = request.getParameter("password");
-            if (userName.equals("jsmith@toba.com") && password.equals("letmein")) {
-             url = "/account_activity.jsp";  // default action
+           
+            
+               
         }
-            else{url = "/login_failure.jsp";}
+            if (action==null) {
+            url = "/new_customer.jsp"; 
 
             // store data in User object and save User object in database
-            //User user = (User)session.getAttribute("user");
-            
-            // set User object in request object and set URL
-            //request.setAttribute("user", user);
-           // url = "/success.jsp";   // edit me
+             HttpSession session = request.getSession();
+            User user = (User)session.getAttribute("username" + "password");
+            user.getUserName ();
+            user.getPassword();
+            url = "/success.jsp";   // edit me
         }
         
         // forward request and response objects to specified URL
