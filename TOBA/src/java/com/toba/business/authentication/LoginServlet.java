@@ -43,21 +43,20 @@ public class LoginServlet extends HttpServlet {
             // get parameters from the request
             String userName = request.getParameter("username");
             String password = request.getParameter("password");
-           
+           HttpSession session = request.getSession();
+            User user = (User)session.getAttribute("user");
             
-               
+            if(user == null){
+                url = "/new_customer.jsp";
+            }
+            else if (user.getUserName()==userName && user.getPassword()==password){
+                url = "/success.jsp";
+            }
+            else {
+                url = "/login_failure.jsp";
+            }
+            
         }
-            if (action==null) {
-            url = "/new_customer.jsp"; 
-
-            // store data in User object and save User object in database
-             HttpSession session = request.getSession();
-            User user = (User)session.getAttribute("username" + "password");
-            user.getUserName ();
-            user.getPassword();
-            url = "/success.jsp";   // edit me
-        }
-        
         // forward request and response objects to specified URL
         getServletContext()
             .getRequestDispatcher(url)
