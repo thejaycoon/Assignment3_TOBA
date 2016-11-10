@@ -39,23 +39,15 @@ public class ResetPasswordServlet extends HttpServlet {
         }
         else if (action.equals("add")) {                
             // get parameters from the request
-            String userName = request.getParameter("username");
-            String password = request.getParameter("password");
-            if (userName.equals("jsmith@toba.com") && password.equals("")) {
-             url = "/account_activity.jsp";  // default action
-        }
-            else{url = "/account_activity.jsp";}
-             
-            // store data in User object and save User object in database
-            User user = new User();
-            user.setPassword(""); 
-            request.setAttribute("message", url);
+            
+            //String password = request.getParameter("password");
+           
             HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+            String password = (String) session.getAttribute("password");
 
             // set User object in request object and set URL
-            //request.setAttribute("user", user);
-           // url = "/success.jsp";   // edit me
+            request.setAttribute("password", password);
+            url = "/account_activity.jsp";   // edit me
         }
         
         // forward request and response objects to specified URL
