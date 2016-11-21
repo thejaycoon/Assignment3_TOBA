@@ -16,6 +16,13 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <nav>
+         <a href="index.jsp">Home</a> &nbsp;
+         <a href="login.jsp">Login</a> &nbsp;
+	 <a href="new_customer.jsp">New Customer</a> &nbsp;
+         <a href="account_activity.jsp">Account Activity</a> &nbsp;
+         <a href="transfer_funds.jsp">Transfer Funds</a> &nbsp;
+    </nav>
         <header>
             <h1>Congratulations! ${sessionScope.user.firstName}</h1>
             <h2>Your account has been successfully created.</h2> 

@@ -6,6 +6,9 @@
 package com.toba.business.registration;
 
 import com.toba.business.shared.User;
+import com.toba.business.shared.account;
+import com.toba.data.AccountDB;
+import com.toba.data.UserDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -68,8 +71,14 @@ public class NewCustomerServlet extends HttpServlet {
             user.setUserName (user.getLastName() + user.getZipCode());
             user.setPassword("welcome1"); 
             request.setAttribute("message", url);
-            HttpSession session = request.getSession();
-            session.setAttribute("user", user);
+         //   HttpSession session = request.getSession();
+        //    session.setAttribute("user", user);
+            UserDB.insert(user);//add customer to database
+            //type attribute
+            account checking = new account("Checking", 0, user);
+            account savings = new account("Savings",25.00, user);
+            AccountDB.insert(savings);
+            AccountDB.insert(checking);
         }
         
         // forward request and response objects to specified URL

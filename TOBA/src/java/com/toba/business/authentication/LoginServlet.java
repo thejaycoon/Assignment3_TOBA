@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.toba.business.shared.User;
+import com.toba.business.shared.account;
+import com.toba.data.AccountDB;
+import com.toba.data.UserDB;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -43,17 +46,23 @@ public class LoginServlet extends HttpServlet {
             // get parameters from the request
             String userName = request.getParameter("username");
             String password = request.getParameter("password");
-           HttpSession session = request.getSession();
-            User user = (User)session.getAttribute("user");
+           //HttpSession session = request.getSession();
+           // User user = (User)session.getAttribute("user");
             
+            User user = UserDB.selectUser(userName, password);
             if(user == null){
                 url = "/new_customer.jsp";
             }
-            else if (user.getUserName()==userName && user.getPassword()==password){
-                url = "/success.jsp";
-            }
             else {
-                url = "/login_failure.jsp";
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user);
+                url = "/account_activity.jsp";
+                
+                account checking = AccountDB.selectAccount(user,"Checking");
+                account savings = AccountDB.selectAccount(user,"Savings");
+                
+                session.setAttribute("checking", checking);
+                session.setAttribute("savings", savings);
             }
             
         }

@@ -20,6 +20,8 @@
          <a href="index.jsp">Home</a> &nbsp;
          <a href="login.jsp">Login</a> &nbsp;
 	 <a href="new_customer.jsp">New Customer</a> &nbsp;
+         <a href="account_activity.jsp">Account Activity</a> &nbsp;
+         <a href="transfer_funds.jsp">Transfer Funds</a> &nbsp;
     </nav>
         <h1>Already a Member?</h1>
     <p>Enter user name and password.</p>

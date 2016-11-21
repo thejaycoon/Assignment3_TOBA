@@ -6,11 +6,19 @@
 package com.toba.business.shared;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 /**
  *
  * @author Jason
  */
+@Entity
 public class User implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long userID;
     private String userName;
     private String password;
     private String firstName;
@@ -50,7 +58,7 @@ public class User implements Serializable{
         this.zipCode = zipCode;
         this.eMail = eMail;
     }
-
+    
     public String getFirstName() {
         return firstName;
     }

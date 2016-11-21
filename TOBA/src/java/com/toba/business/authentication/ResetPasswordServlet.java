@@ -6,6 +6,7 @@
 package com.toba.business.authentication;
 
 import com.toba.business.shared.User;
+import com.toba.data.UserDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,13 +19,15 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jason
  */
-@WebServlet(name = "ResetPasswordServlet", urlPatterns = {"/ResetPasswordServlet"})
+@WebServlet(urlPatterns = {"/ResetPasswordServlet"})
 public class ResetPasswordServlet extends HttpServlet {
 
-  
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
+  @Override
+    protected void doPost(HttpServletRequest request, 
+                          HttpServletResponse response) 
+                          throws ServletException, IOException{
+    
+        response.setContentType("text/html;charset=UTF-8");
              String url = "/password_reset.jsp";
 
         // get current action
@@ -47,6 +50,7 @@ public class ResetPasswordServlet extends HttpServlet {
             String password = request.getParameter("password");
             user.setPassword(password);
             session.setAttribute("user", user);
+            UserDB.update(user);
 
             // set User object in request object and set URL
             url = "/account_activity.jsp";   // edit me
