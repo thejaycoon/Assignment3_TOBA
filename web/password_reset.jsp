@@ -23,10 +23,10 @@
     </nav>
         <h1>Need to reset password?</h1>
     <p>Enter user name and type new password.</p>
-    <form action="LoginServlet" method="post">
+    <form action="ResetPasswordServlet" method="post">
         <label class="pad_top">Password:</label>
-        <input type="text" name="password" required><br>
-        <input type="hidden" name="action" value="${user.password}">
+        <input type="text" name="password" value="${user.password}"><br>
+        <input type="hidden" name="action" value="add">
         <label>&nbsp;</label> <br>
         <input type="submit" value="Login" class="margin_left">
     </form><br>

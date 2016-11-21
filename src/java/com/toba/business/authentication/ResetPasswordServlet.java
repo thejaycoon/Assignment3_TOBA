@@ -6,6 +6,7 @@
 package com.toba.business.authentication;
 
 import com.toba.business.shared.User;
+import com.toba.data.UserDB;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -18,14 +19,16 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jason
  */
-@WebServlet(name = "ResetPasswordServlet", urlPatterns = {"/ResetPasswordServlet"})
+@WebServlet(urlPatterns = {"/ResetPasswordServlet"})
 public class ResetPasswordServlet extends HttpServlet {
 
-  
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        //response.setContentType("text/html;charset=UTF-8");
-             String url = "/account_activity.jsp";
+  @Override
+    protected void doPost(HttpServletRequest request, 
+                          HttpServletResponse response) 
+                          throws ServletException, IOException{
+    
+        response.setContentType("text/html;charset=UTF-8");
+             String url = "/password_reset.jsp";
 
         // get current action
         String action = request.getParameter("action");
@@ -35,7 +38,7 @@ public class ResetPasswordServlet extends HttpServlet {
 
         // perform action and set URL to appropriate page
         if (action.equals("submit")) {
-            url = "/account_activity.jsp";   
+            url = "/password_reset.jsp";   
         }
         else if (action.equals("add")) {                
             // get parameters from the request
@@ -43,10 +46,13 @@ public class ResetPasswordServlet extends HttpServlet {
             //String password = request.getParameter("password");
            
             HttpSession session = request.getSession();
-            String password = (String) session.getAttribute("password");
+            User user = (User)session.getAttribute("user");
+            String password = request.getParameter("password");
+            user.setPassword(password);
+            session.setAttribute("user", user);
+            UserDB.update(user);
 
             // set User object in request object and set URL
-            request.setAttribute("password", password);
             url = "/account_activity.jsp";   // edit me
         }
         
