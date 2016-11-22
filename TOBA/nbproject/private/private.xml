@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/success.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/authentication/LoginServlet.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/index.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/conf/persistence.xml</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/registration/NewCustomerServlet.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/data/DBUtil.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/shared/User.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/authentication/ResetPasswordServlet.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/password_reset.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/account_activity.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/includes/footer.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/new_customer.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/login.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/data/UserDB.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/transactions/TransactionServlet.java</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/META-INF/context.xml</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/transfer_funds.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/web/transaction.jsp</file>
+            <file>file:/C:/Users/Jason/Documents/NetBeansProjects/TOBA/src/java/com/toba/business/shared/account.java</file>
+        </group>
+    </open-files>
+</project-private>
